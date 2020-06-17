@@ -7,21 +7,30 @@ namespace TDDTests
     [TestClass]
     public class TDDTests
     {
-        [TestMethod]
-        public void Should_Register_Name_And_Email_When_User_Insert()
+        [DataTestMethod]
+        [DataRow("Ravel Okada", "ravel.okada@email.com.br")]
+        public void Should_Validate_If_Email_Follow_Company_Patterns_When_User_Insert_Sucess(string name, string email)
         {
             TDDMethods methods = new TDDMethods();
-
-            var name = "Ravel Okada";
-            var email = "ravel.okada@email.com.br";
-
             User user = new User();
 
             user.Name = name;
             user.Email = methods.ValidateEmail(name, email);
 
             Assert.AreEqual(user.Email, email);
+        }
 
+        [DataTestMethod]
+        [DataRow("Ravel Okada", "okada.ravel@email.com.br")]
+        public void Should_Validate_If_Email_Follow_Company_Patterns_When_User_Insert_Fail(string name, string email)
+        {
+            TDDMethods methods = new TDDMethods();
+            User user = new User();
+
+            user.Name = name;
+            user.Email = methods.ValidateEmail(name, email);
+
+            Assert.AreNotEqual(user.Email, email);
         }
     }
 }
