@@ -19,6 +19,8 @@ namespace TDDTests
 
         [DataTestMethod]
         [DataRow("Ravel Okada", "ravel.okada@email.com.br")]
+        [DataRow("John Doe", "john.doe@email.com.br")]
+        [DataRow("Joana Doe", "joana.doe@email.com.br")]
         public void Should_Validate_If_Email_Follow_Company_Patterns_When_User_Insert_Sucess(string name, string email)
         {
 
@@ -30,6 +32,8 @@ namespace TDDTests
 
         [DataTestMethod]
         [DataRow("Ravel Okada", "okada.ravel@email.com.br")]
+        [DataRow("John Doe", "doe.john@email.com.br")]
+        [DataRow("Joana Doe", "doe.joana@email.com.br")]
         public void Should_Validate_If_Email_Follow_Company_Patterns_When_User_Insert_Fail(string name, string email)
         {
 

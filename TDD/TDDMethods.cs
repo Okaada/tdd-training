@@ -11,8 +11,22 @@ namespace TDD
 
         public string ValidateEmail(string name, string email)
         {
-            
-            return "ravel.okada@email.com.br";
+
+            string separator = "_";
+            var lowerName = name.ToLowerInvariant();
+            var normalized = lowerName.Replace(" ", separator);
+            var emailBuilder = normalized.Split('_');
+
+            var userEmail = emailBuilder[0] + "." + emailBuilder[1];
+
+            var comparativeUserEmail = email.Split('@');
+
+            if (comparativeUserEmail[0] != userEmail)
+                return "Please, your user need to follow our pattern";
+
+            var completeEmail = userEmail + "@email.com.br";
+
+            return completeEmail;
         }
 
     }
