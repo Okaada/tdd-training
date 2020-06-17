@@ -12,6 +12,15 @@ namespace TDDTests
         {
             TDDMethods methods = new TDDMethods();
 
+            var name = "Ravel Okada";
+            var email = "ravel.okada@email.com.br";
+
+            User user = new User();
+
+            user.Name = name;
+            user.Email = methods.ValidateEmail(name, email);
+
+            Assert.AreEqual(user.Email, email);
 
         }
     }

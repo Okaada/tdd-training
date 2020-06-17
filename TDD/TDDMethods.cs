@@ -8,5 +8,11 @@ namespace TDD
 {
     public class TDDMethods
     {
+
+        public string ValidateEmail(string name, string email)
+        {
+            return "ravel.okada@email.com.br";
+        }
+
     }
 }
